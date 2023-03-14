@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7E32ABF929C0D69D00556C6B /* PokemonCommon.docc in Sources */ = {isa = PBXBuildFile; fileRef = 7E32ABF829C0D69D00556C6B /* PokemonCommon.docc */; };
+		7E32ABFF29C0D69E00556C6B /* PokemonCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E32ABF429C0D69D00556C6B /* PokemonCommon.framework */; };
+		7E32AC0429C0D69E00556C6B /* PokemonCommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E32AC0329C0D69E00556C6B /* PokemonCommonTests.swift */; };
+		7E32AC0529C0D69E00556C6B /* PokemonCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E32ABF729C0D69D00556C6B /* PokemonCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7E32AC0029C0D69E00556C6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E32ABEB29C0D69D00556C6B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E32ABF329C0D69D00556C6B;
+			remoteInfo = PokemonCommon;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7E32ABF429C0D69D00556C6B /* PokemonCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PokemonCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E32ABF729C0D69D00556C6B /* PokemonCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PokemonCommon.h; sourceTree = "<group>"; };
+		7E32ABF829C0D69D00556C6B /* PokemonCommon.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = PokemonCommon.docc; sourceTree = "<group>"; };
+		7E32ABFE29C0D69E00556C6B /* PokemonCommonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonCommonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E32AC0329C0D69E00556C6B /* PokemonCommonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCommonTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7E32ABF129C0D69D00556C6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E32ABFB29C0D69E00556C6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E32ABFF29C0D69E00556C6B /* PokemonCommon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7E32ABEA29C0D69D00556C6B = {
+			isa = PBXGroup;
+			children = (
+				7E32ABF629C0D69D00556C6B /* PokemonCommon */,
+				7E32AC0229C0D69E00556C6B /* PokemonCommonTests */,
+				7E32ABF529C0D69D00556C6B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7E32ABF529C0D69D00556C6B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E32ABF429C0D69D00556C6B /* PokemonCommon.framework */,
+				7E32ABFE29C0D69E00556C6B /* PokemonCommonTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E32ABF629C0D69D00556C6B /* PokemonCommon */ = {
+			isa = PBXGroup;
+			children = (
+				7E32ABF729C0D69D00556C6B /* PokemonCommon.h */,
+				7E32ABF829C0D69D00556C6B /* PokemonCommon.docc */,
+			);
+			path = PokemonCommon;
+			sourceTree = "<group>";
+		};
+		7E32AC0229C0D69E00556C6B /* PokemonCommonTests */ = {
+			isa = PBXGroup;
+			children = (
+				7E32AC0329C0D69E00556C6B /* PokemonCommonTests.swift */,
+			);
+			path = PokemonCommonTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7E32ABEF29C0D69D00556C6B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E32AC0529C0D69E00556C6B /* PokemonCommon.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7E32ABF329C0D69D00556C6B /* PokemonCommon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E32AC0829C0D69E00556C6B /* Build configuration list for PBXNativeTarget "PokemonCommon" */;
+			buildPhases = (
+				7E32ABEF29C0D69D00556C6B /* Headers */,
+				7E32ABF029C0D69D00556C6B /* Sources */,
+				7E32ABF129C0D69D00556C6B /* Frameworks */,
+				7E32ABF229C0D69D00556C6B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PokemonCommon;
+			productName = PokemonCommon;
+			productReference = 7E32ABF429C0D69D00556C6B /* PokemonCommon.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7E32ABFD29C0D69E00556C6B /* PokemonCommonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E32AC0B29C0D69E00556C6B /* Build configuration list for PBXNativeTarget "PokemonCommonTests" */;
+			buildPhases = (
+				7E32ABFA29C0D69E00556C6B /* Sources */,
+				7E32ABFB29C0D69E00556C6B /* Frameworks */,
+				7E32ABFC29C0D69E00556C6B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E32AC0129C0D69E00556C6B /* PBXTargetDependency */,
+			);
+			name = PokemonCommonTests;
+			productName = PokemonCommonTests;
+			productReference = 7E32ABFE29C0D69E00556C6B /* PokemonCommonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7E32ABEB29C0D69D00556C6B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					7E32ABF329C0D69D00556C6B = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					7E32ABFD29C0D69E00556C6B = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 7E32ABEE29C0D69D00556C6B /* Build configuration list for PBXProject "PokemonCommon" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7E32ABEA29C0D69D00556C6B;
+			productRefGroup = 7E32ABF529C0D69D00556C6B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7E32ABF329C0D69D00556C6B /* PokemonCommon */,
+				7E32ABFD29C0D69E00556C6B /* PokemonCommonTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7E32ABF229C0D69D00556C6B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E32ABFC29C0D69E00556C6B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7E32ABF029C0D69D00556C6B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E32ABF929C0D69D00556C6B /* PokemonCommon.docc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E32ABFA29C0D69E00556C6B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E32AC0429C0D69E00556C6B /* PokemonCommonTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7E32AC0129C0D69E00556C6B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7E32ABF329C0D69D00556C6B /* PokemonCommon */;
+			targetProxy = 7E32AC0029C0D69E00556C6B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7E32AC0629C0D69E00556C6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7E32AC0729C0D69E00556C6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7E32AC0929C0D69E00556C6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2V3D2X879V;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.victorarana.PokemonCommon;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		7E32AC0A29C0D69E00556C6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2V3D2X879V;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.victorarana.PokemonCommon;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		7E32AC0C29C0D69E00556C6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2V3D2X879V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.victorarana.PokemonCommonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		7E32AC0D29C0D69E00556C6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2V3D2X879V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.victorarana.PokemonCommonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7E32ABEE29C0D69D00556C6B /* Build configuration list for PBXProject "PokemonCommon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E32AC0629C0D69E00556C6B /* Debug */,
+				7E32AC0729C0D69E00556C6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E32AC0829C0D69E00556C6B /* Build configuration list for PBXNativeTarget "PokemonCommon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E32AC0929C0D69E00556C6B /* Debug */,
+				7E32AC0A29C0D69E00556C6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E32AC0B29C0D69E00556C6B /* Build configuration list for PBXNativeTarget "PokemonCommonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E32AC0C29C0D69E00556C6B /* Debug */,
+				7E32AC0D29C0D69E00556C6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7E32ABEB29C0D69D00556C6B /* Project object */;
+}
