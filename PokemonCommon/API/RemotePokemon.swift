@@ -1,5 +1,5 @@
 //
-//  Pokemon.swift
+//  RemotePokemon.swift
 //  PokemonCommon
 //
 //  Created by Victor Arana on 3/14/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class Pokemon {
+class RemotePokemon: Decodable {
     public let id: String
     public let name: String
     public let url: URL
