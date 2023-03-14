@@ -6,3 +6,40 @@
 //
 
 import Foundation
+
+private class URLSessionTaskWrapper: HTTPClientTask {
+    private let wrapper: URLSessionDataTask
+    
+    init(wrapper: URLSessionDataTask) {
+        self.wrapper = wrapper
+    }
+    
+    func cancel() {
+        wrapper.cancel()
+    }
+}
+
+private class UnexpectedValuesError: Error {}
+
+public final class URLSessionHTTPClient: HTTPClient {
+    private let session: URLSession
+    
+    init(session: URLSession) {
+        self.session = session
+    }
+    
+    public func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) -> HTTPClientTask {
+        let task = session.dataTask(with: url) { data, response, error in
+            completion(Result {
+                if let error = error {
+                    throw error
+                } else if let data = data, let response = response as? HTTPURLResponse {
+                    return (data, response)
+                } else {
+                    throw UnexpectedValuesError()
+                }
+            })
+        }
+        return URLSessionTaskWrapper(wrapper: task)
+    }
+}
