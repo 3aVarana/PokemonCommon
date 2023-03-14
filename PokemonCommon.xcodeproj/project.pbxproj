@@ -11,6 +11,8 @@
 		7E32ABFF29C0D69E00556C6B /* PokemonCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E32ABF429C0D69D00556C6B /* PokemonCommon.framework */; };
 		7E32AC0429C0D69E00556C6B /* PokemonCommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E32AC0329C0D69E00556C6B /* PokemonCommonTests.swift */; };
 		7E32AC0529C0D69E00556C6B /* PokemonCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E32ABF729C0D69D00556C6B /* PokemonCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E32AC1129C0D6D700556C6B /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E32AC1029C0D6D700556C6B /* HTTPClient.swift */; };
+		7E32AC1329C0D6E400556C6B /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E32AC1229C0D6E400556C6B /* URLSessionHTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		7E32ABF829C0D69D00556C6B /* PokemonCommon.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = PokemonCommon.docc; sourceTree = "<group>"; };
 		7E32ABFE29C0D69E00556C6B /* PokemonCommonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonCommonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E32AC0329C0D69E00556C6B /* PokemonCommonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCommonTests.swift; sourceTree = "<group>"; };
+		7E32AC1029C0D6D700556C6B /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		7E32AC1229C0D6E400556C6B /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 		7E32ABF629C0D69D00556C6B /* PokemonCommon */ = {
 			isa = PBXGroup;
 			children = (
+				7E32AC0F29C0D6B500556C6B /* API */,
+				7E32AC0E29C0D6A900556C6B /* Feature */,
 				7E32ABF729C0D69D00556C6B /* PokemonCommon.h */,
 				7E32ABF829C0D69D00556C6B /* PokemonCommon.docc */,
 			);
@@ -83,6 +89,22 @@
 				7E32AC0329C0D69E00556C6B /* PokemonCommonTests.swift */,
 			);
 			path = PokemonCommonTests;
+			sourceTree = "<group>";
+		};
+		7E32AC0E29C0D6A900556C6B /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		7E32AC0F29C0D6B500556C6B /* API */ = {
+			isa = PBXGroup;
+			children = (
+				7E32AC1029C0D6D700556C6B /* HTTPClient.swift */,
+				7E32AC1229C0D6E400556C6B /* URLSessionHTTPClient.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,7 +216,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E32AC1129C0D6D700556C6B /* HTTPClient.swift in Sources */,
 				7E32ABF929C0D69D00556C6B /* PokemonCommon.docc in Sources */,
+				7E32AC1329C0D6E400556C6B /* URLSessionHTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +419,7 @@
 		7E32AC0C29C0D69E00556C6B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2V3D2X879V;
@@ -410,6 +435,7 @@
 		7E32AC0D29C0D69E00556C6B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2V3D2X879V;
