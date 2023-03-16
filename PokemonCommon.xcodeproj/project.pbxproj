@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7E32ABF929C0D69D00556C6B /* PokemonCommon.docc in Sources */ = {isa = PBXBuildFile; fileRef = 7E32ABF829C0D69D00556C6B /* PokemonCommon.docc */; };
 		7E32ABFF29C0D69E00556C6B /* PokemonCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E32ABF429C0D69D00556C6B /* PokemonCommon.framework */; };
-		7E32AC0429C0D69E00556C6B /* PokemonCommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E32AC0329C0D69E00556C6B /* PokemonCommonTests.swift */; };
 		7E32AC0529C0D69E00556C6B /* PokemonCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E32ABF729C0D69D00556C6B /* PokemonCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E32AC1129C0D6D700556C6B /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E32AC1029C0D6D700556C6B /* HTTPClient.swift */; };
 		7E32AC1329C0D6E400556C6B /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E32AC1229C0D6E400556C6B /* URLSessionHTTPClient.swift */; };
@@ -19,6 +18,7 @@
 		7E32AC1B29C0DCBA00556C6B /* RemotePokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E32AC1A29C0DCBA00556C6B /* RemotePokemon.swift */; };
 		7E32AC1D29C0DD1700556C6B /* PokemonItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E32AC1C29C0DD1600556C6B /* PokemonItemsMapper.swift */; };
 		7E32AC2029C0DD8B00556C6B /* HTTPURLResponse+statusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E32AC1F29C0DD8B00556C6B /* HTTPURLResponse+statusCode.swift */; };
+		7E32AC5829C2B19000556C6B /* LoadPokemonFromRemoteUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E32AC5729C2B19000556C6B /* LoadPokemonFromRemoteUseCaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 		7E32ABF729C0D69D00556C6B /* PokemonCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PokemonCommon.h; sourceTree = "<group>"; };
 		7E32ABF829C0D69D00556C6B /* PokemonCommon.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = PokemonCommon.docc; sourceTree = "<group>"; };
 		7E32ABFE29C0D69E00556C6B /* PokemonCommonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonCommonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E32AC0329C0D69E00556C6B /* PokemonCommonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCommonTests.swift; sourceTree = "<group>"; };
 		7E32AC1029C0D6D700556C6B /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		7E32AC1229C0D6E400556C6B /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		7E32AC1429C0D99700556C6B /* RemotePokemonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePokemonLoader.swift; sourceTree = "<group>"; };
@@ -45,6 +44,7 @@
 		7E32AC1A29C0DCBA00556C6B /* RemotePokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePokemon.swift; sourceTree = "<group>"; };
 		7E32AC1C29C0DD1600556C6B /* PokemonItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonItemsMapper.swift; sourceTree = "<group>"; };
 		7E32AC1F29C0DD8B00556C6B /* HTTPURLResponse+statusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+statusCode.swift"; sourceTree = "<group>"; };
+		7E32AC5729C2B19000556C6B /* LoadPokemonFromRemoteUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadPokemonFromRemoteUseCaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,7 @@
 		7E32AC0229C0D69E00556C6B /* PokemonCommonTests */ = {
 			isa = PBXGroup;
 			children = (
-				7E32AC0329C0D69E00556C6B /* PokemonCommonTests.swift */,
+				7E32AC5929C2B1B500556C6B /* API */,
 			);
 			path = PokemonCommonTests;
 			sourceTree = "<group>";
@@ -129,6 +129,22 @@
 			isa = PBXGroup;
 			children = (
 				7E32AC1F29C0DD8B00556C6B /* HTTPURLResponse+statusCode.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7E32AC5929C2B1B500556C6B /* API */ = {
+			isa = PBXGroup;
+			children = (
+				7E32AC5A29C2B1BD00556C6B /* Helpers */,
+				7E32AC5729C2B19000556C6B /* LoadPokemonFromRemoteUseCaseTests.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		7E32AC5A29C2B1BD00556C6B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -198,6 +214,7 @@
 					};
 					7E32ABFD29C0D69E00556C6B = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 				};
 			};
@@ -258,7 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E32AC0429C0D69E00556C6B /* PokemonCommonTests.swift in Sources */,
+				7E32AC5829C2B19000556C6B /* LoadPokemonFromRemoteUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,14 +469,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2V3D2X879V;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.victorarana.PokemonCommonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -468,10 +492,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2V3D2X879V;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.victorarana.PokemonCommonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
