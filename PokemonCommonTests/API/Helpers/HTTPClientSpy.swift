@@ -14,11 +14,19 @@ private struct HTTPClientSpyTask: HTTPClientTask {
 
 class HTTPClientSpy: HTTPClient {
     
-    var requestedURLs: [URL] = []
+    private var messages = [(url: URL, completion: (HTTPClient.Result) -> Void)]()
+    
+    var requestedURLs: [URL] {
+        messages.map { $0.url }
+    }
     
     func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) -> HTTPClientTask {
-        requestedURLs.append(url)
+        messages.append((url, completion))
         return HTTPClientSpyTask()
+    }
+    
+    func complete(with error: Error, at index: Int = 0) {
+        messages[index].completion(.failure(error))
     }
     
 }

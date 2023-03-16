@@ -35,10 +35,45 @@ final class LoadPokemonFromRemoteUseCaseTests: XCTestCase {
         XCTAssertEqual(client.requestedURLs, [url, url])
     }
     
+    func test_load_deliversErrorOnClientError() {
+        let url = URL(string: "https://request-test-url.com")!
+        let (sut, client) = makeSUT(url: url)
+        
+        expect(sut, toCompleteWith: failure(.connectivity)) {
+            let clientError = NSError(domain: "Test", code: 0)
+            client.complete(with: clientError)
+        }
+    }
+    
     // MARK: - Helpers
-    func makeSUT(url: URL = URL(string: "https://test-url.com")!, file: StaticString = #file, line: UInt = #line) -> (sut: RemotePokemonLoader, client: HTTPClientSpy) {
+    private func makeSUT(url: URL = URL(string: "https://test-url.com")!, file: StaticString = #file, line: UInt = #line) -> (sut: RemotePokemonLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemotePokemonLoader(url: url, client: client)
         return (sut, client)
     }
+    
+    private func failure(_ error: RemotePokemonLoader.Error) -> RemotePokemonLoader.Result {
+        return .failure(error)
+    }
+    
+    private func expect(_ sut: RemotePokemonLoader, toCompleteWith expectedResult: RemotePokemonLoader.Result, when action: () -> Void,
+                        file: StaticString = #file, line: UInt = #line) {
+        let exp = expectation(description: "Wait for loading completed")
+
+        sut.load { receivedResult in
+            switch (receivedResult, expectedResult) {
+            case let (.failure(receivedError as RemotePokemonLoader.Error), .failure(expectedError as RemotePokemonLoader.Error)):
+                XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+            default:
+                print("BB")
+            }
+            
+            exp.fulfill()
+        }
+        
+        action()
+        wait(for: [exp], timeout: 1.0)
+    }
+    
+    
 }
