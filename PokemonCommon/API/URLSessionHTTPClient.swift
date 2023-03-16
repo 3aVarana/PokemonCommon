@@ -7,12 +7,8 @@
 
 import Foundation
 
-private class URLSessionTaskWrapper: HTTPClientTask {
-    private let wrapper: URLSessionDataTask
-    
-    init(wrapper: URLSessionDataTask) {
-        self.wrapper = wrapper
-    }
+private struct URLSessionTaskWrapper: HTTPClientTask {
+    let wrapper: URLSessionDataTask
     
     func cancel() {
         wrapper.cancel()

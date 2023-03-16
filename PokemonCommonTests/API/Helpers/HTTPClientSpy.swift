@@ -8,7 +8,7 @@
 import Foundation
 import PokemonCommon
 
-private class HTTPClientSpyTask: HTTPClientTask {
+private struct HTTPClientSpyTask: HTTPClientTask {
     func cancel() {}
 }
 
