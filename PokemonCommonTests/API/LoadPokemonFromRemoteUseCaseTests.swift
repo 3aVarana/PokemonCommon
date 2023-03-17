@@ -59,6 +59,16 @@ final class LoadPokemonFromRemoteUseCaseTests: XCTestCase {
         }
     }
     
+    func test_load_deliversErrorOn200HTTPResponseWithInvalidJson() {
+        let url = URL(string: "https://request-test-url.com")!
+        let (sut, client) = makeSUT(url: url)
+        
+        expect(sut, toCompleteWith: failure(.invalidData)) {
+            let invalidJSon = Data("Invalid JSON".utf8)
+            client.complete(withStatusCode: 200, data: invalidJSon)
+        }
+    }
+    
     // MARK: - Helpers
     private func makeSUT(url: URL = URL(string: "https://test-url.com")!, file: StaticString = #file, line: UInt = #line) -> (sut: RemotePokemonLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
