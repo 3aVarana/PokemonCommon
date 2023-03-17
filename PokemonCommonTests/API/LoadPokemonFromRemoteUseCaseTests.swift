@@ -69,6 +69,16 @@ final class LoadPokemonFromRemoteUseCaseTests: XCTestCase {
         }
     }
     
+    func test_load_deliversNoPokemonON200HTTPResponseWithEmptyJsonList() {
+        let url = URL(string: "https://request-test-url.com")!
+        let (sut, client) = makeSUT(url: url)
+        
+        expect(sut, toCompleteWith: .success([])) {
+            let emptyJsonList = makeItemJSON([])
+            client.complete(withStatusCode: 200, data: emptyJsonList)
+        }
+    }
+    
     // MARK: - Helpers
     private func makeSUT(url: URL = URL(string: "https://test-url.com")!, file: StaticString = #file, line: UInt = #line) -> (sut: RemotePokemonLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
