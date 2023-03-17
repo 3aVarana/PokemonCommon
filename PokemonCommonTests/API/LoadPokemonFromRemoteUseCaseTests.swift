@@ -79,6 +79,28 @@ final class LoadPokemonFromRemoteUseCaseTests: XCTestCase {
         }
     }
     
+    func test_load_deliversItemsOn200HTTPResponseWithJsonListItems() {
+        let url = URL(string: "https://request-test-url.com")!
+        let (sut, client) = makeSUT(url: url)
+        
+        let item1 = makeItem(id: "1",
+                             name: "bulbasaur",
+                             url: "https://poke.com/1",
+                             imageUrl: URL(string: "https://poke.com/image.png")!
+        )
+        
+        let item2 = makeItem(id: "2",
+                             name: "ivysaur",
+                             url: "https://poke.com/2",
+                             imageUrl: URL(string: "https://poke.com/image.png")!
+        )
+        
+        expect(sut, toCompleteWith: .success([item1.model, item2.model])) {
+            let jsonWithItems = makeItemJSON([item1.json, item2.json])
+            client.complete(withStatusCode: 200, data: jsonWithItems)
+        }
+    }
+    
     // MARK: - Helpers
     private func makeSUT(url: URL = URL(string: "https://test-url.com")!, file: StaticString = #file, line: UInt = #line) -> (sut: RemotePokemonLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
@@ -117,5 +139,16 @@ final class LoadPokemonFromRemoteUseCaseTests: XCTestCase {
             "results": items
         ] as [String : Any]
         return try! JSONSerialization.data(withJSONObject: json)
+    }
+    
+    private func makeItem(id: String, name: String, url: String, imageUrl: URL) -> (model: Pokemon, json: [String: Any]) {
+        let item = Pokemon(id: id, name: name, url: URL(string: url)!, imageUrl: imageUrl)
+        
+        let json = [
+            "name": name,
+            "url": url
+        ].compactMapValues { $0 }
+        
+        return (item, json)
     }
 }
