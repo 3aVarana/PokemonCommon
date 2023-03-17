@@ -45,15 +45,25 @@ final class LoadPokemonFromRemoteUseCaseTests: XCTestCase {
         }
     }
     
+    func test_load_deliversErrorOnNon200HTTPResponse() {
+        let url = URL(string: "https://request-test-url.com")!
+        let (sut, client) = makeSUT(url: url)
+        
+        let invalidCodes = [199, 201, 210, 300, 400, 500]
+        
+        invalidCodes.enumerated().forEach { index, code in
+            expect(sut, toCompleteWith: failure(.invalidData)) {
+                let json = makeItemJSON([])
+                client.complete(withStatusCode: code, data: json, at: index)
+            }
+        }
+    }
+    
     // MARK: - Helpers
     private func makeSUT(url: URL = URL(string: "https://test-url.com")!, file: StaticString = #file, line: UInt = #line) -> (sut: RemotePokemonLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemotePokemonLoader(url: url, client: client)
         return (sut, client)
-    }
-    
-    private func failure(_ error: RemotePokemonLoader.Error) -> RemotePokemonLoader.Result {
-        return .failure(error)
     }
     
     private func expect(_ sut: RemotePokemonLoader, toCompleteWith expectedResult: RemotePokemonLoader.Result, when action: () -> Void,
@@ -75,5 +85,17 @@ final class LoadPokemonFromRemoteUseCaseTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
+    private func failure(_ error: RemotePokemonLoader.Error) -> RemotePokemonLoader.Result {
+        return .failure(error)
+    }
     
+    private func makeItemJSON(_ items: [[String: Any]]) -> Data {
+        let json = [
+            "count": 100,
+            "next": "",
+            "previous": "",
+            "results": items
+        ] as [String : Any]
+        return try! JSONSerialization.data(withJSONObject: json)
+    }
 }
