@@ -7,7 +7,8 @@
 
 import Foundation
 
-public class Pokemon {
+public struct Pokemon: Equatable {
+    
     public let id: String
     public let name: String
     public let url: URL

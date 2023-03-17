@@ -86,13 +86,13 @@ final class LoadPokemonFromRemoteUseCaseTests: XCTestCase {
         let item1 = makeItem(id: "1",
                              name: "bulbasaur",
                              url: "https://poke.com/1",
-                             imageUrl: URL(string: "https://poke.com/image.png")!
+                             imageUrl: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png")!
         )
         
         let item2 = makeItem(id: "2",
                              name: "ivysaur",
                              url: "https://poke.com/2",
-                             imageUrl: URL(string: "https://poke.com/image.png")!
+                             imageUrl: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png")!
         )
         
         expect(sut, toCompleteWith: .success([item1.model, item2.model])) {
@@ -114,10 +114,13 @@ final class LoadPokemonFromRemoteUseCaseTests: XCTestCase {
 
         sut.load { receivedResult in
             switch (receivedResult, expectedResult) {
+            case let (.success(receivedItems), .success(expectedItems)):
+                XCTAssertEqual(receivedItems, expectedItems, file: file, line: line)
+                
             case let (.failure(receivedError as RemotePokemonLoader.Error), .failure(expectedError as RemotePokemonLoader.Error)):
                 XCTAssertEqual(receivedError, expectedError, file: file, line: line)
             default:
-                print("BB")
+                XCTFail("Expected result \(expectedResult) got \(receivedResult) instead", file: file, line: line)
             }
             
             exp.fulfill()
