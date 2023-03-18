@@ -20,6 +20,7 @@
 		7E32AC2029C0DD8B00556C6B /* HTTPURLResponse+statusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E32AC1F29C0DD8B00556C6B /* HTTPURLResponse+statusCode.swift */; };
 		7E32AC5829C2B19000556C6B /* LoadPokemonFromRemoteUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E32AC5729C2B19000556C6B /* LoadPokemonFromRemoteUseCaseTests.swift */; };
 		7E32AC5C29C2B2E600556C6B /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E32AC5B29C2B2E600556C6B /* HTTPClientSpy.swift */; };
+		7E6DF57629C54ABE005EFFD3 /* XCTestCase+TrackMemoryLeaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6DF57529C54ABE005EFFD3 /* XCTestCase+TrackMemoryLeaks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		7E32AC1F29C0DD8B00556C6B /* HTTPURLResponse+statusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+statusCode.swift"; sourceTree = "<group>"; };
 		7E32AC5729C2B19000556C6B /* LoadPokemonFromRemoteUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadPokemonFromRemoteUseCaseTests.swift; sourceTree = "<group>"; };
 		7E32AC5B29C2B2E600556C6B /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
+		7E6DF57529C54ABE005EFFD3 /* XCTestCase+TrackMemoryLeaks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+TrackMemoryLeaks.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				7E32AC5B29C2B2E600556C6B /* HTTPClientSpy.swift */,
+				7E6DF57529C54ABE005EFFD3 /* XCTestCase+TrackMemoryLeaks.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 			files = (
 				7E32AC5829C2B19000556C6B /* LoadPokemonFromRemoteUseCaseTests.swift in Sources */,
 				7E32AC5C29C2B2E600556C6B /* HTTPClientSpy.swift in Sources */,
+				7E6DF57629C54ABE005EFFD3 /* XCTestCase+TrackMemoryLeaks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

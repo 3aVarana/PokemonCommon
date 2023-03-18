@@ -120,6 +120,8 @@ final class LoadPokemonFromRemoteUseCaseTests: XCTestCase {
     private func makeSUT(url: URL = URL(string: "https://test-url.com")!, file: StaticString = #file, line: UInt = #line) -> (sut: RemotePokemonLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemotePokemonLoader(url: url, client: client)
+        trackMemoryLeak(for: client, file: file, line: line)
+        trackMemoryLeak(for: sut, file: file, line: line)
         return (sut, client)
     }
     
