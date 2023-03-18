@@ -101,6 +101,21 @@ final class LoadPokemonFromRemoteUseCaseTests: XCTestCase {
         }
     }
     
+    func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
+        let url = URL(string: "https://request-test-url.com")!
+        let client = HTTPClientSpy()
+        var sut: RemotePokemonLoader? = RemotePokemonLoader(url: url, client: client)
+        
+        var receivedResults = [RemotePokemonLoader.Result]()
+        
+        sut?.load { receivedResults.append($0) }
+        sut = nil
+        
+        client.complete(withStatusCode: 200, data: makeItemJSON([]))
+        
+        XCTAssertTrue(receivedResults.isEmpty)
+    }
+    
     // MARK: - Helpers
     private func makeSUT(url: URL = URL(string: "https://test-url.com")!, file: StaticString = #file, line: UInt = #line) -> (sut: RemotePokemonLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
