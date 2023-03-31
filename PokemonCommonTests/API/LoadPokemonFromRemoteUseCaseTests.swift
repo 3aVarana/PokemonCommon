@@ -162,14 +162,17 @@ final class LoadPokemonFromRemoteUseCaseTests: XCTestCase {
     }
     
     private func makeItem(id: Int, name: String, url: String, imageUrl: String) -> (model: Pokemon, json: [String: Any]) {
-        let typeItem = makeTypeItem(slot: 1, code: 10, name: "water")
-        let item = Pokemon(id: id, name: name, url: URL(string: url)!, imageUrl: URL(string: imageUrl)!, types: [typeItem.model])
+        let typeItem1 = makeTypeItem(slot: 1, code: 10, name: "water")
+        let typeItem2 = makeTypeItem(slot: 2, code: 11, name: "grass")
+        
+        let item = Pokemon(id: id, name: name, url: URL(string: url)!, imageUrl: URL(string: imageUrl)!, types: [typeItem1.model, typeItem2.model])
         
         let json = [
             "id": id,
             "name": name,
             "types": [
-                typeItem.json
+                typeItem1.json,
+                typeItem2.json
             ]
         ].compactMapValues { $0 }
         
