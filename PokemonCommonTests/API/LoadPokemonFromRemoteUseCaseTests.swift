@@ -83,16 +83,16 @@ final class LoadPokemonFromRemoteUseCaseTests: XCTestCase {
         let url = URL(string: "https://request-test-url.com")!
         let (sut, client) = makeSUT(url: url)
         
-        let item1 = makeItem(id: "1",
+        let item1 = makeItem(id: 1,
                              name: "bulbasaur",
-                             url: "https://poke.com/1",
-                             imageUrl: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png")!
+                             url: "https://pokeapi.co/api/v2/pokemon/1",
+                             imageUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
         )
         
-        let item2 = makeItem(id: "2",
+        let item2 = makeItem(id: 2,
                              name: "ivysaur",
-                             url: "https://poke.com/2",
-                             imageUrl: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png")!
+                             url: "https://pokeapi.co/api/v2/pokemon/2",
+                             imageUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
         )
         
         expect(sut, toCompleteWith: .success([item1.model, item2.model])) {
@@ -161,12 +161,13 @@ final class LoadPokemonFromRemoteUseCaseTests: XCTestCase {
         return try! JSONSerialization.data(withJSONObject: json)
     }
     
-    private func makeItem(id: String, name: String, url: String, imageUrl: URL) -> (model: Pokemon, json: [String: Any]) {
-        let item = Pokemon(id: id, name: name, url: URL(string: url)!, imageUrl: imageUrl)
+    private func makeItem(id: Int, name: String, url: String, imageUrl: String) -> (model: Pokemon, json: [String: Any]) {
+        let item = Pokemon(id: id, name: name, url: URL(string: url)!, imageUrl: URL(string: imageUrl)!, types: [])
         
         let json = [
+            "id": id,
             "name": name,
-            "url": url
+            "types": []
         ].compactMapValues { $0 }
         
         return (item, json)
