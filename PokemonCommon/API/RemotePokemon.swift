@@ -7,25 +7,23 @@
 
 import Foundation
 
-class RemotePokemon: Decodable {
+public struct RemoteType: Decodable {
+    public let slot: Int
+    public let code: Int
     public let name: String
-    public let url: String
+}
+
+public struct RemotePokemon: Decodable {
     
-    public init(name: String, url: String) {
-        self.name = name
-        self.url = url
-    }
+    public let id: Int
+    public let name: String
+    public let types: [RemoteType]
     
-    public func getIdentifier() -> String {
-        let components = url.split(separator: "/")
-        guard let id = components.last else {
-            return "1"
-        }
-        return String(id)
+    public func getUrl() -> URL {
+        return URL(string: "https://pokeapi.co/api/v2/pokemon/\(id)")!
     }
     
     public func getImageUrl() -> URL {
-        let id = getIdentifier()
         return URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(id).png")!
     }
 }

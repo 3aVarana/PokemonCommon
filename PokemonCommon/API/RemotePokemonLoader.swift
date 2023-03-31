@@ -49,10 +49,16 @@ public final class RemotePokemonLoader: PokemonLoader {
 
 private extension Array where Element == RemotePokemon {
     func toModels() -> [Pokemon] {
-        return map { Pokemon(id: $0.getIdentifier(),
-                             name: $0.name,
-                             url: URL(string: $0.url)!,
-                             imageUrl: $0.getImageUrl())
+        return map {
+            Pokemon(id: $0.id, name: $0.name, url: $0.getUrl(), imageUrl: $0.getImageUrl(), types: $0.types.toModels())
+        }
+    }
+}
+
+private extension Array where Element == RemoteType {
+    func toModels() -> [PokemonType] {
+        return map {
+            PokemonType(slot: $0.slot, code: $0.code, name: $0.name)
         }
     }
 }

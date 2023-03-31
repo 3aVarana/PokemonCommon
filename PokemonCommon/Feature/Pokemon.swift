@@ -7,17 +7,17 @@
 
 import Foundation
 
+public struct PokemonType: Equatable {
+    public let slot: Int
+    public let code: Int
+    public let name: String
+}
+
 public struct Pokemon: Equatable {
     
-    public let id: String
+    public let id: Int
     public let name: String
     public let url: URL
     public let imageUrl: URL
-    
-    public init(id: String, name: String, url: URL, imageUrl: URL) {
-        self.id = id
-        self.name = name
-        self.url = url
-        self.imageUrl = imageUrl
-    }
+    public let types: [PokemonType]
 }
