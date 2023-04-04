@@ -9,5 +9,11 @@ import Foundation
 import PokemonCommon
 
 class PokemonStoreSpy: PokemonStore {
+    enum ReceivedMessage: Equatable {
+        case delete
+        case insert([Pokemon])
+        case retrieve
+    }
     
+    private(set) var receivedMessages = [ReceivedMessage]()
 }
