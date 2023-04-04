@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ManagedPokemon" representedClassName="ManagedPokemon" syncable="YES">
+        <attribute name="dataUrl" attributeType="URI"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO"/>
+        <attribute name="imageUrl" attributeType="URI"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="types" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ManagedType"/>
+    </entity>
+    <entity name="ManagedType" representedClassName="ManagedType" syncable="YES">
+        <attribute name="code" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="slot" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+</model>

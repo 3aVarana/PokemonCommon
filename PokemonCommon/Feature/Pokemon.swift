@@ -7,18 +7,6 @@
 
 import Foundation
 
-public struct PokemonType: Equatable {
-    public let slot: Int
-    public let code: Int
-    public let name: String
-    
-    public init(slot: Int, code: Int, name: String) {
-        self.slot = slot
-        self.code = code
-        self.name = name
-    }
-}
-
 public struct Pokemon: Equatable {
     
     public let id: Int

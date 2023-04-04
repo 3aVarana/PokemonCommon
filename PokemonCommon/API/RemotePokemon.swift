@@ -7,12 +7,6 @@
 
 import Foundation
 
-public struct RemoteType: Decodable {
-    public let slot: Int
-    public let code: Int
-    public let name: String
-}
-
 public struct RemotePokemon: Decodable {
     
     public let id: Int

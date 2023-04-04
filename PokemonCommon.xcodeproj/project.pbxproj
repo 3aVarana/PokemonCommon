@@ -21,6 +21,11 @@
 		7E32AC5829C2B19000556C6B /* LoadPokemonFromRemoteUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E32AC5729C2B19000556C6B /* LoadPokemonFromRemoteUseCaseTests.swift */; };
 		7E32AC5C29C2B2E600556C6B /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E32AC5B29C2B2E600556C6B /* HTTPClientSpy.swift */; };
 		7E6DF57629C54ABE005EFFD3 /* XCTestCase+TrackMemoryLeaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6DF57529C54ABE005EFFD3 /* XCTestCase+TrackMemoryLeaks.swift */; };
+		7ED00B2C29DBAEFD00146276 /* PokemonCD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7ED00B2A29DBAEFD00146276 /* PokemonCD.xcdatamodeld */; };
+		7ED00B2E29DBAF4300146276 /* PokemonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED00B2D29DBAF4300146276 /* PokemonType.swift */; };
+		7ED00B3029DBAF6C00146276 /* RemoteType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED00B2F29DBAF6C00146276 /* RemoteType.swift */; };
+		7ED00B3229DBB23100146276 /* ManagedPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED00B3129DBB23100146276 /* ManagedPokemon.swift */; };
+		7ED00B3429DBB23800146276 /* ManagedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED00B3329DBB23800146276 /* ManagedType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		7E32AC5729C2B19000556C6B /* LoadPokemonFromRemoteUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadPokemonFromRemoteUseCaseTests.swift; sourceTree = "<group>"; };
 		7E32AC5B29C2B2E600556C6B /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
 		7E6DF57529C54ABE005EFFD3 /* XCTestCase+TrackMemoryLeaks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+TrackMemoryLeaks.swift"; sourceTree = "<group>"; };
+		7ED00B2B29DBAEFD00146276 /* PokemonCD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PokemonCD.xcdatamodel; sourceTree = "<group>"; };
+		7ED00B2D29DBAF4300146276 /* PokemonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonType.swift; sourceTree = "<group>"; };
+		7ED00B2F29DBAF6C00146276 /* RemoteType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteType.swift; sourceTree = "<group>"; };
+		7ED00B3129DBB23100146276 /* ManagedPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedPokemon.swift; sourceTree = "<group>"; };
+		7ED00B3329DBB23800146276 /* ManagedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +101,7 @@
 		7E32ABF629C0D69D00556C6B /* PokemonCommon */ = {
 			isa = PBXGroup;
 			children = (
+				7ED00B2829DBAE4400146276 /* STORE */,
 				7E32AC0F29C0D6B500556C6B /* API */,
 				7E32AC0E29C0D6A900556C6B /* Feature */,
 				7E32ABF729C0D69D00556C6B /* PokemonCommon.h */,
@@ -112,6 +123,7 @@
 			children = (
 				7E32AC1629C0D9C200556C6B /* PokemonLoader.swift */,
 				7E32AC1829C0D9CF00556C6B /* Pokemon.swift */,
+				7ED00B2D29DBAF4300146276 /* PokemonType.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -125,6 +137,7 @@
 				7E32AC1429C0D99700556C6B /* RemotePokemonLoader.swift */,
 				7E32AC1A29C0DCBA00556C6B /* RemotePokemon.swift */,
 				7E32AC1C29C0DD1600556C6B /* PokemonItemsMapper.swift */,
+				7ED00B2F29DBAF6C00146276 /* RemoteType.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -153,6 +166,24 @@
 				7E6DF57529C54ABE005EFFD3 /* XCTestCase+TrackMemoryLeaks.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7ED00B2829DBAE4400146276 /* STORE */ = {
+			isa = PBXGroup;
+			children = (
+				7ED00B2929DBAEBE00146276 /* Core Data */,
+			);
+			path = STORE;
+			sourceTree = "<group>";
+		};
+		7ED00B2929DBAEBE00146276 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				7ED00B2A29DBAEFD00146276 /* PokemonCD.xcdatamodeld */,
+				7ED00B3129DBB23100146276 /* ManagedPokemon.swift */,
+				7ED00B3329DBB23800146276 /* ManagedType.swift */,
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,12 +298,17 @@
 			files = (
 				7E32AC2029C0DD8B00556C6B /* HTTPURLResponse+statusCode.swift in Sources */,
 				7E32AC1529C0D99700556C6B /* RemotePokemonLoader.swift in Sources */,
+				7ED00B2C29DBAEFD00146276 /* PokemonCD.xcdatamodeld in Sources */,
 				7E32AC1129C0D6D700556C6B /* HTTPClient.swift in Sources */,
 				7E32ABF929C0D69D00556C6B /* PokemonCommon.docc in Sources */,
+				7ED00B3029DBAF6C00146276 /* RemoteType.swift in Sources */,
 				7E32AC1D29C0DD1700556C6B /* PokemonItemsMapper.swift in Sources */,
 				7E32AC1B29C0DCBA00556C6B /* RemotePokemon.swift in Sources */,
 				7E32AC1729C0D9C200556C6B /* PokemonLoader.swift in Sources */,
 				7E32AC1329C0D6E400556C6B /* URLSessionHTTPClient.swift in Sources */,
+				7ED00B3229DBB23100146276 /* ManagedPokemon.swift in Sources */,
+				7ED00B3429DBB23800146276 /* ManagedType.swift in Sources */,
+				7ED00B2E29DBAF4300146276 /* PokemonType.swift in Sources */,
 				7E32AC1929C0D9CF00556C6B /* Pokemon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -549,6 +585,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7ED00B2A29DBAEFD00146276 /* PokemonCD.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7ED00B2B29DBAEFD00146276 /* PokemonCD.xcdatamodel */,
+			);
+			currentVersion = 7ED00B2B29DBAEFD00146276 /* PokemonCD.xcdatamodel */;
+			path = PokemonCD.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7E32ABEB29C0D69D00556C6B /* Project object */;
 }
