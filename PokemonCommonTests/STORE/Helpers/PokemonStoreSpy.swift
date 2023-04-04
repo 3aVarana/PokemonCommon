@@ -9,6 +9,7 @@ import Foundation
 import PokemonCommon
 
 class PokemonStoreSpy: PokemonStore {
+    
     enum ReceivedMessage: Equatable {
         case delete
         case insert([Pokemon])
@@ -16,4 +17,17 @@ class PokemonStoreSpy: PokemonStore {
     }
     
     private(set) var receivedMessages = [ReceivedMessage]()
+    
+    
+    func deleteCachedPokemon(completion: @escaping DeletionCompletion) {
+        receivedMessages.append(.delete)
+    }
+    
+    func insert(_ pokemonList: [PokemonCommon.Pokemon], completion: @escaping InsertionCompletion) {
+        
+    }
+    
+    func retrieve(completion: @escaping RetrivalCompletion) {
+        
+    }
 }

@@ -30,6 +30,7 @@
 		7ED00B3929DBB71100146276 /* LocalPokemonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED00B3829DBB71100146276 /* LocalPokemonLoader.swift */; };
 		7ED00B3B29DBB75B00146276 /* PokemonStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED00B3A29DBB75B00146276 /* PokemonStore.swift */; };
 		7ED00B3E29DBB7C200146276 /* PokemonStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED00B3D29DBB7C200146276 /* PokemonStoreSpy.swift */; };
+		7ED00B4429DBBDB600146276 /* PokemonCacheTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED00B4329DBBDB600146276 /* PokemonCacheTestHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		7ED00B3829DBB71100146276 /* LocalPokemonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPokemonLoader.swift; sourceTree = "<group>"; };
 		7ED00B3A29DBB75B00146276 /* PokemonStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStore.swift; sourceTree = "<group>"; };
 		7ED00B3D29DBB7C200146276 /* PokemonStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStoreSpy.swift; sourceTree = "<group>"; };
+		7ED00B4329DBBDB600146276 /* PokemonCacheTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCacheTestHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				7ED00B3D29DBB7C200146276 /* PokemonStoreSpy.swift */,
+				7ED00B4329DBBDB600146276 /* PokemonCacheTestHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				7E32AC5829C2B19000556C6B /* LoadPokemonFromRemoteUseCaseTests.swift in Sources */,
 				7ED00B3E29DBB7C200146276 /* PokemonStoreSpy.swift in Sources */,
 				7E32AC5C29C2B2E600556C6B /* HTTPClientSpy.swift in Sources */,
+				7ED00B4429DBBDB600146276 /* PokemonCacheTestHelpers.swift in Sources */,
 				7E6DF57629C54ABE005EFFD3 /* XCTestCase+TrackMemoryLeaks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

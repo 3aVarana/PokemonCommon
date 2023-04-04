@@ -11,9 +11,17 @@ import PokemonCommon
 final class SavePokemonUseCaseTests: XCTestCase {
 
     func test_init_doesNotMessageStoreOnCreation() {
-        let (_, sut) = makeSUT()
+        let (_, store) = makeSUT()
         
-        XCTAssertEqual(sut.receivedMessages, [])
+        XCTAssertEqual(store.receivedMessages, [])
+    }
+    
+    func test_save_requestsCacheDeletion() {
+        let (sut, store) = makeSUT()
+        
+        sut.save(uniquePokemonList()) { _ in }
+        
+        XCTAssertEqual(store.receivedMessages, [.delete])
     }
     
     // MARK: - Helpers
