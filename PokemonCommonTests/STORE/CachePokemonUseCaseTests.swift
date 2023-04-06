@@ -8,7 +8,7 @@
 import XCTest
 import PokemonCommon
 
-final class SavePokemonUseCaseTests: XCTestCase {
+final class CachePokemonUseCaseTests: XCTestCase {
 
     func test_init_doesNotMessageStoreOnCreation() {
         let (_, store) = makeSUT()
