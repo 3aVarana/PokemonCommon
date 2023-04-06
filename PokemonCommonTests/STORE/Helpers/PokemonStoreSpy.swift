@@ -18,9 +18,16 @@ class PokemonStoreSpy: PokemonStore {
     
     private(set) var receivedMessages = [ReceivedMessage]()
     
+    private var deleteCompletions = [DeletionCompletion]()
+    
     
     func deleteCachedPokemon(completion: @escaping DeletionCompletion) {
+        deleteCompletions.append(completion)
         receivedMessages.append(.delete)
+    }
+    
+    func completeDeletion(with error: NSError, at index: Int = 0) {
+        deleteCompletions[index](.failure(error))
     }
     
     func insert(_ pokemonList: [PokemonCommon.Pokemon], completion: @escaping InsertionCompletion) {

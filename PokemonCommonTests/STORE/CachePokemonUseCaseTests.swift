@@ -24,6 +24,16 @@ final class CachePokemonUseCaseTests: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [.delete])
     }
     
+    func test_save_doesNotRequestCacheInsertionOnDeletionError() {
+        let (sut, store) = makeSUT()
+        let deletionError = anyNSError()
+        
+        sut.save(uniquePokemonList()) { _ in }
+        store.completeDeletion(with: deletionError)
+        
+        XCTAssertEqual(store.receivedMessages, [.delete])
+    }
+    
     // MARK: - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalPokemonLoader, store: PokemonStoreSpy) {
         let store = PokemonStoreSpy()
