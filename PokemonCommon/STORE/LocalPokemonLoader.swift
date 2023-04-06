@@ -19,6 +19,18 @@ extension LocalPokemonLoader {
     public typealias SaveResult = Result<Void, Error>
     
     public func save(_ pokemonList: [Pokemon], completion: @escaping (SaveResult) -> Void) {
-        store.deleteCachedPokemon(completion: completion)
+        store.deleteCachedPokemon { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success:
+                self.cache(pokemonList, completion: completion)
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    private func cache(_ pokemonList: [Pokemon], completion: @escaping (SaveResult) -> Void) {
+        store.insert(pokemonList, completion: completion)
     }
 }
