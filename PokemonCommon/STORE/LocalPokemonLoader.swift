@@ -31,6 +31,9 @@ extension LocalPokemonLoader {
     }
     
     private func cache(_ pokemonList: [Pokemon], completion: @escaping (SaveResult) -> Void) {
-        store.insert(pokemonList, completion: completion)
+        store.insert(pokemonList) { [weak self] insertionResult in
+            guard self != nil else { return }
+            completion(insertionResult)
+        }
     }
 }

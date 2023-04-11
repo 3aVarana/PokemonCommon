@@ -87,6 +87,22 @@ final class CachePokemonUseCaseTests: XCTestCase {
         XCTAssertTrue(receivedResults.isEmpty)
     }
     
+    func test_store_doesNotDeliverInsertionAfterSUTInstanceHasBeenDeallocated() {
+        let store = PokemonStoreSpy()
+        var sut: LocalPokemonLoader? = LocalPokemonLoader(store: store)
+        
+        var receivedResults = [LocalPokemonLoader.SaveResult]()
+        sut?.save(uniquePokemonList(), completion: {
+            receivedResults.append($0)
+        })
+        
+        store.completeDeletionSuccessfully()
+        sut = nil
+        store.completeInsertionSuccessfully()
+        
+        XCTAssertTrue(receivedResults.isEmpty)
+    }
+    
     // MARK: - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalPokemonLoader, store: PokemonStoreSpy) {
         let store = PokemonStoreSpy()
