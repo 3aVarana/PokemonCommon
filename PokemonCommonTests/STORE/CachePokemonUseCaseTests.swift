@@ -72,6 +72,21 @@ final class CachePokemonUseCaseTests: XCTestCase {
         }
     }
     
+    func test_save_doesNotDeliverDeletionAfterSUTInstanceHasBeenDeallocated() {
+        let store = PokemonStoreSpy()
+        var sut: LocalPokemonLoader? = LocalPokemonLoader(store: store)
+        
+        var receivedResults = [LocalPokemonLoader.SaveResult]()
+        sut?.save(uniquePokemonList(), completion: {
+            receivedResults.append($0)
+        })
+        
+        sut = nil
+        store.completeDeletionSuccessfully()
+        
+        XCTAssertTrue(receivedResults.isEmpty)
+    }
+    
     // MARK: - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalPokemonLoader, store: PokemonStoreSpy) {
         let store = PokemonStoreSpy()
