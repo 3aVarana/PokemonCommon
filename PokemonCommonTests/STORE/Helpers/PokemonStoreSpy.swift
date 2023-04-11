@@ -43,6 +43,10 @@ class PokemonStoreSpy: PokemonStore {
         insertionCompletions[index](.failure(error))
     }
     
+    func completeInsertionSuccessfully(at index: Int = 0) {
+        insertionCompletions[index](.success(()))
+    }
+    
     func retrieve(completion: @escaping RetrivalCompletion) {
         
     }
