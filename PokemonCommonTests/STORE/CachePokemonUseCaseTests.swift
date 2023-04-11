@@ -53,6 +53,16 @@ final class CachePokemonUseCaseTests: XCTestCase {
         }
     }
     
+    func test_save_failsOnInsertionError() {
+        let (sut, store) = makeSUT()
+        let insertionError = anyNSError()
+        
+        expect(sut, toCompleteWithError: insertionError) {
+            store.completeDeletionSuccessfully()
+            store.completeInsertion(with: insertionError)
+        }
+    }
+    
     // MARK: - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalPokemonLoader, store: PokemonStoreSpy) {
         let store = PokemonStoreSpy()
