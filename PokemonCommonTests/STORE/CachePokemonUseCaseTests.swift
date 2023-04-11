@@ -44,6 +44,15 @@ final class CachePokemonUseCaseTests: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [.delete, .insert(pokemonList)])
     }
     
+    func test_save_failsOnDeletionError() {
+        let (sut, store) = makeSUT()
+        let deletionError = anyNSError()
+        
+        expect(sut, toCompleteWithError: deletionError) {
+            store.completeDeletion(with: deletionError)
+        }
+    }
+    
     // MARK: - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalPokemonLoader, store: PokemonStoreSpy) {
         let store = PokemonStoreSpy()
@@ -51,5 +60,22 @@ final class CachePokemonUseCaseTests: XCTestCase {
         trackMemoryLeak(for: sut)
         trackMemoryLeak(for: store)
         return (sut, store)
+    }
+    
+    private func expect(_ sut: LocalPokemonLoader, toCompleteWithError expectedError: NSError?, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
+        let exp = expectation(description: "Wait for save completion")
+        
+        var receivedError: Error?
+        sut.save(uniquePokemonList()) { result in
+            if case let .failure(error) = result {
+                receivedError = error
+            }
+            exp.fulfill()
+        }
+        
+        action()
+        wait(for: [exp], timeout: 1.0)
+        
+        XCTAssertEqual(receivedError as NSError?, expectedError, file: file, line: line)
     }
 }
