@@ -18,15 +18,47 @@ public final class CoreDataPokemonStore: PokemonStore {
     }
     
     public func deleteCachedPokemon(completion: @escaping DeletionCompletion) {
-        
+        perform { context in
+            completion(Result {
+                try ManagedPokemon.find(in: context).map(context.delete).map(context.save)
+            })
+        }
     }
     
     public func insert(_ pokemonList: [Pokemon], completion: @escaping InsertionCompletion) {
-        
+        perform { context in
+            completion(Result {
+                let _ = try pokemonList.map { pokemon in
+                    let managedPokemon = try ManagedPokemon.newUniqueInstance(in: context)
+                    managedPokemon.id = Int32(pokemon.id)
+                    managedPokemon.name = pokemon.name
+                    managedPokemon.dataUrl = pokemon.url
+                    managedPokemon.imageUrl = pokemon.imageUrl
+                    managedPokemon.types = ManagedType.types(from: pokemon.types, in: context)
+                    return managedPokemon
+                }
+                try context.save()
+            })
+        }
     }
     
     public func retrieve(completion: @escaping RetrievalCompletion) {
-        
+        perform { context in
+            completion(Result {
+                try ManagedPokemon.find(in: context).map{
+                    return Pokemon(id: Int($0.id),
+                                   name: $0.name,
+                                   url: $0.dataUrl,
+                                   imageUrl: $0.imageUrl,
+                                   types: $0.localTypes)
+                }
+            })
+        }
+    }
+    
+    private func perform(_ action: @escaping (NSManagedObjectContext) -> Void) {
+        let context = self.context
+        context.perform { action(context) }
     }
     
 }

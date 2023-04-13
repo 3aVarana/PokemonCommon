@@ -15,3 +15,19 @@ class ManagedPokemon: NSManagedObject {
     @NSManaged var imageUrl: URL
     @NSManaged var types: NSOrderedSet
 }
+
+extension ManagedPokemon {
+    static func find(in context: NSManagedObjectContext) throws -> [ManagedPokemon] {
+        let request = NSFetchRequest<ManagedPokemon>(entityName: entity().name!)
+        request.returnsObjectsAsFaults = false
+        return try context.fetch(request)
+    }
+    
+    static func newUniqueInstance(in context: NSManagedObjectContext) throws -> ManagedPokemon {
+        return ManagedPokemon(context: context)
+    }
+    
+    var localTypes: [PokemonType] {
+        return types.compactMap { ($0 as? ManagedType)?.local }
+    }
+}
