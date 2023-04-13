@@ -53,7 +53,11 @@ class PokemonStoreSpy: PokemonStore {
         receivedMessages.append(.retrieve)
     }
     
-    func completeRetrival(with error: NSError, at index: Int = 0) {
+    func completeRetrieval(with error: NSError, at index: Int = 0) {
         retrievalCompletions[index](.failure(error))
+    }
+    
+    func completeRetrievalWithEmptyCache(at index: Int = 0) {
+        retrievalCompletions[index](.success([]))
     }
 }

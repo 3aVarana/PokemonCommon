@@ -29,9 +29,17 @@ final class LoadPokemonFromCacheUseCaseTests: XCTestCase {
         let retrievalError = anyNSError()
         
         expect(sut, toCompleteWith: .failure(retrievalError)) {
-            store.completeRetrival(with: retrievalError)
+            store.completeRetrieval(with: retrievalError)
         }
+    }
+    
+    func test_load_deliversNoPokemonOnEmptyCache() {
+        let (sut, store) = makeSUT()
+        let retrievalError = anyNSError()
         
+        expect(sut, toCompleteWith: .success([])) {
+            store.completeRetrievalWithEmptyCache()
+        }
     }
     
     // MARK: - Helpers
@@ -50,6 +58,8 @@ final class LoadPokemonFromCacheUseCaseTests: XCTestCase {
             switch (receivedResult, expectedResult) {
             case let (.failure(receivedError as NSError), .failure(expectedError as NSError)):
                 XCTAssertEqual(receivedError, expectedError)
+            case let (.success(receivedPokemonList), .success(expectedPokemonList)):
+                XCTAssertEqual(receivedPokemonList, expectedPokemonList)
             default:
                 XCTAssertTrue(false)
             }
