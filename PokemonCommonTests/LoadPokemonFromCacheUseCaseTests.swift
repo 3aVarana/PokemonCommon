@@ -35,10 +35,17 @@ final class LoadPokemonFromCacheUseCaseTests: XCTestCase {
     
     func test_load_deliversNoPokemonOnEmptyCache() {
         let (sut, store) = makeSUT()
-        let retrievalError = anyNSError()
         
         expect(sut, toCompleteWith: .success([])) {
             store.completeRetrievalWithEmptyCache()
+        }
+    }
+    
+    func test_load_deliversPokemonListOnNonEmptyCache() {
+        let (sut, store) = makeSUT()
+        let pokemonList = uniquePokemonList()
+        expect(sut, toCompleteWith: .success(pokemonList)) {
+            store.completeRetrieval(with: pokemonList)
         }
     }
     

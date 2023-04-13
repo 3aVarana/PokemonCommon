@@ -60,4 +60,8 @@ class PokemonStoreSpy: PokemonStore {
     func completeRetrievalWithEmptyCache(at index: Int = 0) {
         retrievalCompletions[index](.success([]))
     }
+    
+    func completeRetrieval(with pokemonList: [Pokemon], at index: Int = 0) {
+        retrievalCompletions[index](.success(pokemonList))
+    }
 }
