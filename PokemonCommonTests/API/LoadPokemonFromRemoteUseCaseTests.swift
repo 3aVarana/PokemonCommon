@@ -156,7 +156,7 @@ final class LoadPokemonFromRemoteUseCaseTests: XCTestCase {
             "count": 100,
             "next": "",
             "previous": "",
-            "results": items
+            "result": items
         ] as [String : Any]
         return try! JSONSerialization.data(withJSONObject: json)
     }
