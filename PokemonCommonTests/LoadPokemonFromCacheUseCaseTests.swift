@@ -42,6 +42,16 @@ final class LoadPokemonFromCacheUseCaseTests: XCTestCase {
         }
     }
     
+    func test_load_doesNotHaveSideEffectsOnRetrievalError() {
+        let (sut, store) = makeSUT()
+        let retrievalError = anyNSError()
+        
+        sut.load { _ in }
+        store.completeRetrieval(with: retrievalError)
+        
+        XCTAssertEqual(store.receivedMessages, [.retrieve])
+    }
+    
     // MARK: - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalPokemonLoader, store: PokemonStoreSpy) {
         let store = PokemonStoreSpy()
