@@ -48,6 +48,6 @@ class PokemonStoreSpy: PokemonStore {
     }
     
     func retrieve(completion: @escaping RetrivalCompletion) {
-        
+        receivedMessages.append(.retrieve)
     }
 }

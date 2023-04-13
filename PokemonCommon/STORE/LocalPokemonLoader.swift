@@ -37,3 +37,12 @@ extension LocalPokemonLoader {
         }
     }
 }
+
+extension LocalPokemonLoader: PokemonLoader {
+    public typealias LoadResult = PokemonLoader.Result
+    
+    public func load(completion: @escaping (LoadResult) -> Void) {
+        store.retrieve(completion: completion)
+    }
+    
+}
