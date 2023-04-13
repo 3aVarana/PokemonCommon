@@ -14,12 +14,12 @@ public protocol PokemonStore {
     typealias InsertionResult = Result<Void, Error>
     typealias InsertionCompletion = (InsertionResult) -> Void
     
-    typealias RetrivalResult = Result<[Pokemon], Error>
-    typealias RetrivalCompletion = (RetrivalResult) -> Void
+    typealias RetrievalResult = Result<[Pokemon], Error>
+    typealias RetrievalCompletion = (RetrievalResult) -> Void
     
     func deleteCachedPokemon(completion: @escaping DeletionCompletion)
     
     func insert(_ pokemonList: [Pokemon], completion: @escaping InsertionCompletion)
     
-    func retrieve(completion: @escaping RetrivalCompletion)
+    func retrieve(completion: @escaping RetrievalCompletion)
 }
