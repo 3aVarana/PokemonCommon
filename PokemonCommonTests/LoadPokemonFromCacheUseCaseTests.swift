@@ -61,6 +61,21 @@ final class LoadPokemonFromCacheUseCaseTests: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [.retrieve])
     }
     
+    func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
+        let store = PokemonStoreSpy()
+        var sut: LocalPokemonLoader? = LocalPokemonLoader(store: store)
+        
+        var receivedResults = [LocalPokemonLoader.LoadResult]()
+        sut?.load(completion: { result in
+            receivedResults.append(result)
+        })
+        
+        sut = nil
+        store.completeRetrievalWithEmptyCache()
+        
+        XCTAssertTrue(receivedResults.isEmpty)
+    }
+    
     // MARK: - Helpers
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalPokemonLoader, store: PokemonStoreSpy) {
         let store = PokemonStoreSpy()

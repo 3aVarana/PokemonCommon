@@ -42,7 +42,15 @@ extension LocalPokemonLoader: PokemonLoader {
     public typealias LoadResult = PokemonLoader.Result
     
     public func load(completion: @escaping (LoadResult) -> Void) {
-        store.retrieve(completion: completion)
+        store.retrieve { [weak self] result in
+            guard self != nil else { return }
+            switch result {
+            case let .success(pokemonList):
+                completion(.success(pokemonList))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
     }
     
 }
