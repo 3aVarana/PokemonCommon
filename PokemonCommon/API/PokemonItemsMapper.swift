@@ -13,13 +13,13 @@ public final class PokemonItemsMapper {
         let count: Int
         let next: String?
         let previous: String?
-        let results: [RemotePokemon]
+        let result: [RemotePokemon]
     }
     
     static func map(_ data: Data, response: HTTPURLResponse) throws -> [RemotePokemon] {
         guard response.isOK, let items = try? JSONDecoder().decode(Root.self, from: data) else {
             throw RemotePokemonLoader.Error.invalidData
         }
-        return items.results
+        return items.result
     }
 }
