@@ -8,10 +8,6 @@
 import Foundation
 import PokemonCommon
 
-private struct HTTPClientSpyTask: HTTPClientTask {
-    func cancel() {}
-}
-
 class HTTPClientSpy: HTTPClient {
     
     private var messages = [(url: URL, completion: (HTTPClient.Result) -> Void)]()
@@ -20,9 +16,8 @@ class HTTPClientSpy: HTTPClient {
         messages.map { $0.url }
     }
     
-    func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) -> HTTPClientTask {
+    func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
         messages.append((url, completion))
-        return HTTPClientSpyTask()
     }
     
     func complete(with error: Error, at index: Int = 0) {

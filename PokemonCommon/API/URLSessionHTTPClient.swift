@@ -20,12 +20,12 @@ private class UnexpectedValuesError: Error {}
 public final class URLSessionHTTPClient: HTTPClient {
     private let session: URLSession
     
-    init(session: URLSession) {
+    public init(session: URLSession) {
         self.session = session
     }
     
-    public func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) -> HTTPClientTask {
-        let task = session.dataTask(with: url) { data, response, error in
+    public func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
+        session.dataTask(with: url) { data, response, error in
             completion(Result {
                 if let error = error {
                     throw error
@@ -35,7 +35,6 @@ public final class URLSessionHTTPClient: HTTPClient {
                     throw UnexpectedValuesError()
                 }
             })
-        }
-        return URLSessionTaskWrapper(wrapper: task)
+        }.resume()
     }
 }
