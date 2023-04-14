@@ -10,6 +10,9 @@ import UIKit
 public final class PokemonCell: UITableViewCell {
     @IBOutlet private(set) public var numberLabel: UILabel!
     @IBOutlet private(set) public var nameLabel: UILabel!
+    @IBOutlet private(set) public var pokemonImageContainer: UIView!
+    @IBOutlet private(set) public var pokemonImageView: UIImageView!
+    @IBOutlet private(set) public var pokemonImageRetryButton: UIButton!
 
     var onRetry: (() -> Void)?
 
