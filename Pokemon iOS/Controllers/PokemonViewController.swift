@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import PokemonCommon
+import CoreData
 
 public protocol PokemonViewControllerDelegate {
     func didRequestPokemonRefresh()
 }
 
-public final class PokemonViewController: UITableViewController, UITableViewDataSourcePrefetching, PokemonLoadingView, PokemonErrorView {
+public final class PokemonViewController: UITableViewController, UITableViewDataSourcePrefetching, PokemonListView, PokemonLoadingView, PokemonErrorView {
     
     @IBOutlet private(set) public var errorView: ErrorView?
     
@@ -22,11 +24,47 @@ public final class PokemonViewController: UITableViewController, UITableViewData
     }
     
     public var delegate: PokemonViewControllerDelegate?
+    
+    private var remotePokemonLoader: RemotePokemonLoader?
+    
+    private lazy var httpClient: HTTPClient = {
+        URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
+    }()
+
+    private lazy var store: PokemonStore = {
+        try! CoreDataPokemonStore(
+            storeURL: NSPersistentContainer
+                .defaultDirectoryURL()
+                .appendingPathComponent("pokemon-store.sqlite"))
+    }()
+    
+    private lazy var localFeedLoader: LocalPokemonLoader = {
+        LocalPokemonLoader(store: store)
+    }()
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = PokemonPresenter.title
+        setupDelegate()
         refresh()
+    }
+    
+    private func setupDelegate() {
+        let adapter = PokemonLoaderPresentationAdapter(feedLoader: getRemoteFeedLoaderWithLocalFallback)
+        adapter.presenter = PokemonPresenter(pokemonView: self, loadingView: WeakRefVirtualProxy(self), errorView: WeakRefVirtualProxy(self))
+        delegate = adapter
+    }
+    
+    func getRemoteFeedLoaderWithLocalFallback() -> PokemonLoader.Publisher {
+        let remoteURL = URL(string: "https://stoplight.io/mocks/pokedex/pokeapi/158224127/pokemon")!
+        
+        let remotePokemonLoader = RemotePokemonLoader(url: remoteURL, client: httpClient)
+        self.remotePokemonLoader = remotePokemonLoader
+        
+        return remotePokemonLoader
+            .loadPublisher()
+            .caching(to: localFeedLoader)
+            .fallback(to: localFeedLoader.loadPublisher)
     }
     
     public override func viewDidLayoutSubviews() {
@@ -42,6 +80,12 @@ public final class PokemonViewController: UITableViewController, UITableViewData
     public func display(_ cellControllers: [PokemonCellController]) {
         loadingControllers = [:]
         tableModel = cellControllers
+    }
+    
+    public func display(_ viewModel: PokemonListViewModel) {
+        tableModel = viewModel.pokemonList.map { model in
+            PokemonCellController(delegate: PokemonImageDataLoaderPresentationAdapter<PokemonCellController, UIImage>(model: model))
+        }
     }
     
     public func display(_ viewModel: PokemonLoadingViewModel) {

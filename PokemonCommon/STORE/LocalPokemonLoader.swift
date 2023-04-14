@@ -15,7 +15,7 @@ public final class LocalPokemonLoader {
     }
 }
 
-extension LocalPokemonLoader {
+extension LocalPokemonLoader: PokemonCache {
     public typealias SaveResult = Result<Void, Error>
     
     public func save(_ pokemonList: [Pokemon], completion: @escaping (SaveResult) -> Void) {

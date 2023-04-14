@@ -8,7 +8,7 @@
 import CoreData
 
 @objc(ManagedType)
-class ManagedType: NSManagedObject {
+public class ManagedType: NSManagedObject {
     @NSManaged var id: UUID
     @NSManaged var slot: Int32
     @NSManaged var code: Int32

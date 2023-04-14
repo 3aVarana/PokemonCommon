@@ -8,7 +8,7 @@
 import CoreData
 
 @objc(ManagedPokemon)
-class ManagedPokemon: NSManagedObject {
+public class ManagedPokemon: NSManagedObject {
     @NSManaged var id: Int32
     @NSManaged var name: String
     @NSManaged var dataUrl: URL
