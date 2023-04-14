@@ -27,6 +27,22 @@ final class Pokemon_iOSTests: XCTestCase {
         assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "pokemon_list_dark")
     }
     
+    func test_pokemonListWithErrorMessage_lightMode() {
+        let sut = makeSUT()
+
+        sut.display(.error(message: "This is a\nmulti-line\nerror message"))
+
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "pokemon_list_error_light")
+    }
+    
+    func test_pokemonListWithErrorMessage_darkMode() {
+        let sut = makeSUT(style: .dark)
+
+        sut.display(.error(message: "This is a\nmulti-line\nerror message"))
+        
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "pokemon_list_error_dark")
+    }
+    
     // MARK: - Helpers
     private func makeSUT(style: UIUserInterfaceStyle = .light) -> PokemonViewController {
         let bundle = Bundle(for: PokemonViewController.self)

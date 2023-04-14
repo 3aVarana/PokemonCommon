@@ -10,11 +10,15 @@ import Foundation
 public struct PokemonErrorViewModel {
     public let message: String?
     
-    static var noError: PokemonErrorViewModel {
+    public init(message: String?) {
+        self.message = message
+    }
+    
+    public static var noError: PokemonErrorViewModel {
         return PokemonErrorViewModel(message: nil)
     }
     
-    static func error(message: String) -> PokemonErrorViewModel {
+    public static func error(message: String) -> PokemonErrorViewModel {
         return PokemonErrorViewModel(message: message)
     }
 }
