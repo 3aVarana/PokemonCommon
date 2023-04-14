@@ -60,6 +60,22 @@ final class Pokemon_iOSTests: XCTestCase {
         assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "pokemon_list_with_content_dark")
     }
     
+    func test_pokemonListWithFailedImagesLoading_lightMode() {
+        let sut = makeSUT()
+
+        sut.display(pokemonListWithFailedImagesLoading())
+
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "pokemon_list_with_failed_images_loading_light")
+    }
+    
+    func test_pokemonListWithFailedImagesLoading_darkMode() {
+        let sut = makeSUT(style: .dark)
+
+        sut.display(pokemonListWithFailedImagesLoading())
+
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "pokemon_list_with_failed_images_loading_dark")
+    }
+    
     // MARK: - Helpers
     private func makeSUT(style: UIUserInterfaceStyle = .light) -> PokemonViewController {
         let bundle = Bundle(for: PokemonViewController.self)
@@ -82,6 +98,13 @@ final class Pokemon_iOSTests: XCTestCase {
         return [
             PokemonStub(id: 1, name: "Bulbasaur", image: UIImage.make(withColor: .red)),
             PokemonStub(id: 2, name: "Ivysaur", image: UIImage.make(withColor: .systemPink))
+        ]
+    }
+    
+    private func pokemonListWithFailedImagesLoading() -> [PokemonStub] {
+        return [
+            PokemonStub(id: 1, name: "Bulbasaur", image: nil),
+            PokemonStub(id: 2, name: "Ivysaur", image: nil)
         ]
     }
 
