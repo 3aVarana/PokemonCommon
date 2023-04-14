@@ -35,7 +35,8 @@ public final class PokemonViewController: UITableViewController, UITableViewData
         try! CoreDataPokemonStore(
             storeURL: NSPersistentContainer
                 .defaultDirectoryURL()
-                .appendingPathComponent("pokemon-store.sqlite"))
+                .appendingPathComponent("pokemon-store.sqlite"),
+            bundle: Bundle(for: CoreDataPokemonStore.self))
     }()
     
     private lazy var localFeedLoader: LocalPokemonLoader = {
@@ -84,7 +85,12 @@ public final class PokemonViewController: UITableViewController, UITableViewData
     
     public func display(_ viewModel: PokemonListViewModel) {
         tableModel = viewModel.pokemonList.map { model in
-            PokemonCellController(delegate: PokemonImageDataLoaderPresentationAdapter<PokemonCellController, UIImage>(model: model))
+            let adapter = PokemonImageDataLoaderPresentationAdapter<WeakRefVirtualProxy<PokemonCellController>, UIImage>(model: model)
+            let view = PokemonCellController(delegate: adapter)
+            
+            adapter.presenter = PokemonImagePresenter(view: WeakRefVirtualProxy(view), imageTransformer: UIImage.init)
+            
+            return view
         }
     }
     
