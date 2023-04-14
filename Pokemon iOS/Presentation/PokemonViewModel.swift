@@ -14,4 +14,13 @@ public struct PokemonViewModel<Image> {
     public let isLoading: Bool
     public let shouldRetry: Bool
     public let types: [PokemonType]
+    
+    public init(id: Int, name: String, image: Image?, isLoading: Bool, shouldRetry: Bool, types: [PokemonType]) {
+        self.id = id
+        self.name = name
+        self.image = image
+        self.isLoading = isLoading
+        self.shouldRetry = shouldRetry
+        self.types = types
+    }
 }

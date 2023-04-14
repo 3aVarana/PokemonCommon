@@ -42,6 +42,8 @@ public final class PokemonViewController: UITableViewController, UITableViewData
     private lazy var localFeedLoader: LocalPokemonLoader = {
         LocalPokemonLoader(store: store)
     }()
+    
+    public var shouldSetupDelegate = true
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +53,7 @@ public final class PokemonViewController: UITableViewController, UITableViewData
     }
     
     private func setupDelegate() {
+        guard shouldSetupDelegate else { return }
         let adapter = PokemonLoaderPresentationAdapter(feedLoader: getRemoteFeedLoaderWithLocalFallback)
         adapter.presenter = PokemonPresenter(pokemonView: self, loadingView: WeakRefVirtualProxy(self), errorView: WeakRefVirtualProxy(self))
         delegate = adapter
