@@ -39,9 +39,9 @@ public final class PokemonCellController: PokemonImageView {
     public func display(_ viewModel: PokemonViewModel<UIImage>) {
         cell?.numberLabel.text = "\(viewModel.id)"
         cell?.nameLabel.text = viewModel.name
-//        cell?.feedImageView.setImageAnimated(viewModel.image)
-//        cell?.feedImageContainer.isShimmering = viewModel.isLoading
-//        cell?.feedImageRetryButton.isHidden = !viewModel.shouldRetry
+        cell?.pokemonImageView.setImageAnimated(viewModel.image)
+        cell?.pokemonImageContainer.isShimmering = viewModel.isLoading
+        cell?.pokemonImageRetryButton.isHidden = !viewModel.shouldRetry
         cell?.onRetry = delegate.didRequestImage
     }
     

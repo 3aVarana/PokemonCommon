@@ -70,6 +70,8 @@
 		7EF6D7A329E9025100395190 /* PokemonCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF6D7A229E9025100395190 /* PokemonCache.swift */; };
 		7EF6D7A729E9079200395190 /* WeakRefVirtualProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF6D7A629E9079200395190 /* WeakRefVirtualProxy.swift */; };
 		7EF6D7A929E9097600395190 /* PokemonImageDataLoaderPresentationLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF6D7A829E9097600395190 /* PokemonImageDataLoaderPresentationLoader.swift */; };
+		7EF6D7E229E99DB500395190 /* UIImageView+Animating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF6D7E129E99DB500395190 /* UIImageView+Animating.swift */; };
+		7EF6D7E429E99DDF00395190 /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF6D7E329E99DDF00395190 /* UIView+Shimmering.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,6 +197,8 @@
 		7EF6D7A229E9025100395190 /* PokemonCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCache.swift; sourceTree = "<group>"; };
 		7EF6D7A629E9079200395190 /* WeakRefVirtualProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefVirtualProxy.swift; sourceTree = "<group>"; };
 		7EF6D7A829E9097600395190 /* PokemonImageDataLoaderPresentationLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonImageDataLoaderPresentationLoader.swift; sourceTree = "<group>"; };
+		7EF6D7E129E99DB500395190 /* UIImageView+Animating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Animating.swift"; sourceTree = "<group>"; };
+		7EF6D7E329E99DDF00395190 /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -500,6 +504,8 @@
 				7EF6D79329E8EF1200395190 /* UITableView+Dequeing.swift */,
 				7EF6D79929E8FDB800395190 /* UITableVeiw+HeaderResizing.swift */,
 				7EF6D79B29E8FE3E00395190 /* UIRefreshController+Helpers.swift */,
+				7EF6D7E129E99DB500395190 /* UIImageView+Animating.swift */,
+				7EF6D7E329E99DDF00395190 /* UIView+Shimmering.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -839,6 +845,7 @@
 				7EF6D79C29E8FE3E00395190 /* UIRefreshController+Helpers.swift in Sources */,
 				7EF6D79A29E8FDB800395190 /* UITableVeiw+HeaderResizing.swift in Sources */,
 				7EF6D74B29E8E07600395190 /* PokemonViewController.swift in Sources */,
+				7EF6D7E429E99DDF00395190 /* UIView+Shimmering.swift in Sources */,
 				7EF6D79829E8F06B00395190 /* PokemonImagePresenter.swift in Sources */,
 				7EF6D77A29E8E32500395190 /* PokemonListViewModel.swift in Sources */,
 				7EF6D78B29E8E8A100395190 /* PokemonPresenter.swift in Sources */,
@@ -849,6 +856,7 @@
 				7EF6D7A129E9011F00395190 /* CombineHelpers.swift in Sources */,
 				7EF6D74929E8E07600395190 /* SceneDelegate.swift in Sources */,
 				7EF6D78929E8E88000395190 /* PokemonLoadingViewModel.swift in Sources */,
+				7EF6D7E229E99DB500395190 /* UIImageView+Animating.swift in Sources */,
 				7EF6D7A929E9097600395190 /* PokemonImageDataLoaderPresentationLoader.swift in Sources */,
 				7EF6D78D29E8EA6E00395190 /* ErrorView.swift in Sources */,
 				7EF6D78F29E8EB4600395190 /* PokemonCell.swift in Sources */,
