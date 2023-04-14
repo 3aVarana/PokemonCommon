@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import PokemonCommon
 import Pokemon_iOS
 
 final class Pokemon_iOSTests: XCTestCase {
@@ -43,6 +44,22 @@ final class Pokemon_iOSTests: XCTestCase {
         assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "pokemon_list_error_dark")
     }
     
+    func test_pokemonListWithContent_lightMode() {
+        let sut = makeSUT()
+
+        sut.display(pokemonListWithContent())
+
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "pokemon_list_with_content_light")
+    }
+    
+    func test_pokemonListWithContent_darkMode() {
+        let sut = makeSUT(style: .dark)
+
+        sut.display(pokemonListWithContent())
+
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "pokemon_list_with_content_dark")
+    }
+    
     // MARK: - Helpers
     private func makeSUT(style: UIUserInterfaceStyle = .light) -> PokemonViewController {
         let bundle = Bundle(for: PokemonViewController.self)
@@ -59,6 +76,13 @@ final class Pokemon_iOSTests: XCTestCase {
     
     private func emptyPokemonList() -> [PokemonCellController] {
         return []
+    }
+    
+    private func pokemonListWithContent() -> [PokemonStub] {
+        return [
+            PokemonStub(id: 1, name: "Bulbasaur", image: UIImage.make(withColor: .red)),
+            PokemonStub(id: 2, name: "Ivysaur", image: UIImage.make(withColor: .systemPink))
+        ]
     }
 
 }
@@ -85,7 +109,7 @@ private class PokemonStub: PokemonCellControllerDelegate {
                                      image: image,
                                      isLoading: false,
                                      shouldRetry: image == nil,
-                                     types: [])
+                                     types: [PokemonType(slot: 1, code: 2, name: "grass")])
     }
 
     func didRequestImage() {
