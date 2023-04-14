@@ -37,6 +37,7 @@ public final class PokemonCellController: PokemonImageView {
     }
     
     public func display(_ viewModel: PokemonViewModel<UIImage>) {
+        cell?.numberLabel.text = "\(viewModel.id)"
         cell?.nameLabel.text = viewModel.name
 //        cell?.feedImageView.setImageAnimated(viewModel.image)
 //        cell?.feedImageContainer.isShimmering = viewModel.isLoading

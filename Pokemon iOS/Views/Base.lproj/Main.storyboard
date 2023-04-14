@@ -43,12 +43,41 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Spq-d7-AFO" customClass="PokemonCell" customModule="Pokemon_iOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="84" width="393" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="84" width="393" height="32.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Spq-d7-AFO" id="bri-vH-jd7">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="32.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9CH-Ti-vWY">
+                                            <rect key="frame" x="0.0" y="6.0000000000000018" width="393" height="20.666666666666671"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMU-gB-abX">
+                                                    <rect key="frame" x="0.0" y="0.0" width="196.66666666666666" height="20.666666666666668"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XT-Mr-IcK">
+                                                    <rect key="frame" x="196.66666666666663" y="0.0" width="196.33333333333337" height="20.666666666666668"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="9CH-Ti-vWY" firstAttribute="leading" secondItem="bri-vH-jd7" secondAttribute="leading" id="6KZ-53-ib5"/>
+                                        <constraint firstAttribute="bottom" secondItem="9CH-Ti-vWY" secondAttribute="bottom" constant="6" id="6tA-VO-QAi"/>
+                                        <constraint firstItem="9CH-Ti-vWY" firstAttribute="top" secondItem="bri-vH-jd7" secondAttribute="top" constant="6" id="HVB-fe-2HN"/>
+                                        <constraint firstAttribute="trailing" secondItem="9CH-Ti-vWY" secondAttribute="trailing" id="bJc-OT-PLM"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="0XT-Mr-IcK" id="oV4-L8-CV2"/>
+                                    <outlet property="numberLabel" destination="RMU-gB-abX" id="rBK-OU-NZ8"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
