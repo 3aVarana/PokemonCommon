@@ -9,11 +9,34 @@ import XCTest
 import PokemonCommon
 
 final class PokemonCacheIntegrationTests: XCTestCase {
+    
+    override func setUp() {
+        super.setUp()
+        
+        setupEmptyStoreState()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        
+        deleteStoreSideEffects()
+    }
 
     func test_load_deliversNoItemsOnEmptyCache() {
         let sut = makeSUT()
         
         expect(sut, toLoad: [])
+    }
+    
+    func test_load_deliversItemsSavedPreviouslyByAnotherInstace() {
+        let sutToPerformSave = makeSUT()
+        let sutToPerformLoad = makeSUT()
+        
+        let pokemonList = uniquePokemonList()
+        
+        
+        save(pokemonList, with: sutToPerformSave)
+        expect(sutToPerformLoad, toLoad: pokemonList)
     }
     
     // MARK: - Helpers
@@ -28,6 +51,19 @@ final class PokemonCacheIntegrationTests: XCTestCase {
         trackMemoryLeak(for: loader, file: file, line: line)
         
         return loader
+    }
+    
+    private func save(_ pokemonList: [Pokemon], with sut: LocalPokemonLoader, file: StaticString = #file, line: UInt = #line) {
+        let exp = expectation(description: "Wait for save completion")
+        
+        sut.save(pokemonList) { result in
+            if case let Result.failure(error) = result {
+                XCTFail("Expected to save successfully, got \(error) instead", file: file, line: line)
+            }
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
     }
     
     private func expect(_ sut: LocalPokemonLoader, toLoad expectedPokemonList: [Pokemon], file: StaticString = #file, line: UInt = #line) {
@@ -45,6 +81,18 @@ final class PokemonCacheIntegrationTests: XCTestCase {
         }
         
         wait(for: [exp], timeout: 1.0)
+    }
+    
+    func setupEmptyStoreState() {
+        deleteStoreArtifacts()
+    }
+    
+    func deleteStoreSideEffects() {
+        deleteStoreArtifacts()
+    }
+    
+    func deleteStoreArtifacts() {
+        try? FileManager.default.removeItem(at: getSpeficicTestStoreURL())
     }
     
     private func getSpeficicTestStoreURL() -> URL {

@@ -19,6 +19,7 @@ class ManagedPokemon: NSManagedObject {
 extension ManagedPokemon {
     static func find(in context: NSManagedObjectContext) throws -> [ManagedPokemon] {
         let request = NSFetchRequest<ManagedPokemon>(entityName: entity().name!)
+        request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
         request.returnsObjectsAsFaults = false
         return try context.fetch(request)
     }

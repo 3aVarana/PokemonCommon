@@ -19,6 +19,7 @@ extension ManagedType {
     static func types(from localTypes: [PokemonType], in context: NSManagedObjectContext) -> NSOrderedSet {
         return NSOrderedSet(array: localTypes.map { local in
             let managed = ManagedType(context: context)
+            managed.id = UUID()
             managed.slot = Int32(local.slot)
             managed.code = Int32(local.code)
             managed.name = local.name

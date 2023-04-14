@@ -41,6 +41,7 @@
 		7ED00B3B29DBB75B00146276 /* PokemonStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED00B3A29DBB75B00146276 /* PokemonStore.swift */; };
 		7ED00B3E29DBB7C200146276 /* PokemonStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED00B3D29DBB7C200146276 /* PokemonStoreSpy.swift */; };
 		7ED00B4429DBBDB600146276 /* PokemonCacheTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED00B4329DBBDB600146276 /* PokemonCacheTestHelpers.swift */; };
+		7EF6D73829E8D20500395190 /* PokemonCacheTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED00B4329DBBDB600146276 /* PokemonCacheTestHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -475,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E13362529E8630C00240CB4 /* XCTestCase+TrackMemoryLeaks.swift in Sources */,
+				7EF6D73829E8D20500395190 /* PokemonCacheTestHelpers.swift in Sources */,
 				7E13361A29E85E3100240CB4 /* PokemonCacheIntegrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
