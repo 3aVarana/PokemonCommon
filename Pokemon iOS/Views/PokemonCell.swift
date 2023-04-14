@@ -13,6 +13,9 @@ public final class PokemonCell: UITableViewCell {
     @IBOutlet private(set) public var pokemonImageContainer: UIView!
     @IBOutlet private(set) public var pokemonImageView: UIImageView!
     @IBOutlet private(set) public var pokemonImageRetryButton: UIButton!
+    
+    @IBOutlet private(set) public var firstTypeLabel: UILabel!
+    @IBOutlet private(set) public var secondTypeLabel: UILabel!
 
     var onRetry: (() -> Void)?
 

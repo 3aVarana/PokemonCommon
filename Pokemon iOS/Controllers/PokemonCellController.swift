@@ -43,6 +43,12 @@ public final class PokemonCellController: PokemonImageView {
         cell?.pokemonImageContainer.isShimmering = viewModel.isLoading
         cell?.pokemonImageRetryButton.isHidden = !viewModel.shouldRetry
         cell?.onRetry = delegate.didRequestImage
+        cell?.firstTypeLabel.text = viewModel.types[0].name
+        if viewModel.types.count > 1 {
+            cell?.secondTypeLabel.text = viewModel.types[1].name
+        } else {
+            cell?.secondTypeLabel.text = ""
+        }
     }
     
     private func releaseCellForReuse() {
