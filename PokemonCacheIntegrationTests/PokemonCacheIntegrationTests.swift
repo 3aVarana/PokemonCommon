@@ -39,6 +39,20 @@ final class PokemonCacheIntegrationTests: XCTestCase {
         expect(sutToPerformLoad, toLoad: pokemonList)
     }
     
+    func test_load_overridesItemsSavedPreviouslyByAnotherInstance() {
+        let sutToPerformFirstSave = makeSUT()
+        let sutToPerformSecondSave = makeSUT()
+        let sutToPerformLoad = makeSUT()
+        
+        let firstPokemonList = uniquePokemonList()
+        let secondPokemonList = uniquePokemonList(addExtra: true)
+        
+        save(firstPokemonList, with: sutToPerformFirstSave)
+        save(secondPokemonList, with: sutToPerformSecondSave)
+        
+        expect(sutToPerformLoad, toLoad: secondPokemonList)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> LocalPokemonLoader {

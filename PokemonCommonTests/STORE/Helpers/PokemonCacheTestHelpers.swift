@@ -19,10 +19,13 @@ func uniquePokemon(id: Int) -> Pokemon {
     return Pokemon(id: id, name: "poke", url: anyUrl(), imageUrl: anyUrl(), types: [uniqueType(slot: 1), uniqueType(slot: 2)])
 }
 
-func uniquePokemonList() -> [Pokemon] {
+func uniquePokemonList(addExtra: Bool = false) -> [Pokemon] {
     var pokemonList = [Pokemon]()
     pokemonList.append(uniquePokemon(id: 1))
     pokemonList.append(uniquePokemon(id: 2))
     pokemonList.append(uniquePokemon(id: 3))
+    if addExtra {
+        pokemonList.append(uniquePokemon(id: 4))
+    }
     return pokemonList
 }
