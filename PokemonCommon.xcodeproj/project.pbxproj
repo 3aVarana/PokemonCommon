@@ -63,6 +63,8 @@
 		7EF6D79429E8EF1200395190 /* UITableView+Dequeing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF6D79329E8EF1200395190 /* UITableView+Dequeing.swift */; };
 		7EF6D79629E8EFD800395190 /* PokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF6D79529E8EFD800395190 /* PokemonViewModel.swift */; };
 		7EF6D79829E8F06B00395190 /* PokemonImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF6D79729E8F06B00395190 /* PokemonImagePresenter.swift */; };
+		7EF6D79A29E8FDB800395190 /* UITableVeiw+HeaderResizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF6D79929E8FDB800395190 /* UITableVeiw+HeaderResizing.swift */; };
+		7EF6D79C29E8FE3E00395190 /* UIRefreshController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF6D79B29E8FE3E00395190 /* UIRefreshController+Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,6 +183,8 @@
 		7EF6D79329E8EF1200395190 /* UITableView+Dequeing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Dequeing.swift"; sourceTree = "<group>"; };
 		7EF6D79529E8EFD800395190 /* PokemonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewModel.swift; sourceTree = "<group>"; };
 		7EF6D79729E8F06B00395190 /* PokemonImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonImagePresenter.swift; sourceTree = "<group>"; };
+		7EF6D79929E8FDB800395190 /* UITableVeiw+HeaderResizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableVeiw+HeaderResizing.swift"; sourceTree = "<group>"; };
+		7EF6D79B29E8FE3E00395190 /* UIRefreshController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshController+Helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -482,6 +486,8 @@
 			isa = PBXGroup;
 			children = (
 				7EF6D79329E8EF1200395190 /* UITableView+Dequeing.swift */,
+				7EF6D79929E8FDB800395190 /* UITableVeiw+HeaderResizing.swift */,
+				7EF6D79B29E8FE3E00395190 /* UIRefreshController+Helpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -806,6 +812,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EF6D79C29E8FE3E00395190 /* UIRefreshController+Helpers.swift in Sources */,
+				7EF6D79A29E8FDB800395190 /* UITableVeiw+HeaderResizing.swift in Sources */,
 				7EF6D74B29E8E07600395190 /* PokemonViewController.swift in Sources */,
 				7EF6D79829E8F06B00395190 /* PokemonImagePresenter.swift in Sources */,
 				7EF6D77A29E8E32500395190 /* PokemonListViewModel.swift in Sources */,
