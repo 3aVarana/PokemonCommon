@@ -11,13 +11,33 @@ public protocol PokemonViewControllerDelegate {
     func didRequestPokemonRefresh()
 }
 
-class PokemonViewController: UIViewController {
+public final class PokemonViewController: UITableViewController, UITableViewDataSourcePrefetching, PokemonLoadingView, PokemonErrorView {
+    
+    @IBOutlet private(set) public var errorView: ErrorView?
+    
+    public var delegate: PokemonViewControllerDelegate?
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        refresh()
+    }
+    
+    @IBAction private func refresh() {
+        delegate?.didRequestPokemonRefresh()
     }
 
-
+    public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        
+    }
+    
+    public func display(_ viewModel: PokemonLoadingViewModel) {
+        
+    }
+    
+    public func display(_ viewModel: PokemonErrorViewModel) {
+        
+    }
+    
 }
 

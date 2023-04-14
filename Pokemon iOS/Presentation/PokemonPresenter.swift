@@ -8,8 +8,8 @@
 import Foundation
 import PokemonCommon
 
-public protocol PokemonView {
-    func display(_ viewModel: PokemonViewModel)
+public protocol PokemonListView {
+    func display(_ viewModel: PokemonListViewModel)
 }
 
 public protocol PokemonLoadingView {
@@ -21,15 +21,15 @@ public protocol PokemonErrorView {
 }
 
 public final class PokemonPresenter {
-    private let pokemonView: PokemonView
+    private let pokemonListView: PokemonListView
     private let loadingView: PokemonLoadingView
     private let errorView: PokemonErrorView
     
     public static var title = "Pokedéx"
     private var feedLoadError = "No se pudo conectar al servidor"
     
-    public init(pokemonView: PokemonView, loadingView: PokemonLoadingView, errorView: PokemonErrorView) {
-        self.pokemonView = pokemonView
+    public init(pokemonView: PokemonListView, loadingView: PokemonLoadingView, errorView: PokemonErrorView) {
+        self.pokemonListView = pokemonView
         self.loadingView = loadingView
         self.errorView = errorView
     }
@@ -40,7 +40,7 @@ public final class PokemonPresenter {
     }
     
     public func didFinishLoadingPokemonList(with pokemonList: [Pokemon]) {
-        pokemonView.display(PokemonViewModel(pokemonList: pokemonList))
+        pokemonListView.display(PokemonListViewModel(pokemonList: pokemonList))
         loadingView.display(PokemonLoadingViewModel(isLoading: false))
     }
     
