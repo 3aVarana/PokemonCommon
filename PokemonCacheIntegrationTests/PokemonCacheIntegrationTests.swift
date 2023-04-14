@@ -10,8 +10,10 @@ import PokemonCommon
 
 final class PokemonCacheIntegrationTests: XCTestCase {
 
-    func test_deliver_noItemsOnEmptyCache() {
+    func test_load_deliversNoItemsOnEmptyCache() {
         let sut = makeSUT()
+        
+        expect(sut, toLoad: [])
     }
     
     // MARK: - Helpers
