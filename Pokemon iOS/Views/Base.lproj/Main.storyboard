@@ -82,6 +82,9 @@
                                                             <state key="normal" title="↻">
                                                                 <color key="titleColor" systemColor="systemBackgroundColor"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="retryButtonTapped" destination="Spq-d7-AFO" eventType="touchUpInside" id="5b8-m0-Tsl"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>

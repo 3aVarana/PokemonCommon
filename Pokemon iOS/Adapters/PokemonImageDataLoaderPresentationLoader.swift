@@ -25,7 +25,17 @@ final class PokemonImageDataLoaderPresentationAdapter<View: PokemonImageView, Im
         
         let model = self.model
         
-        self.presenter?.didFinishLoadingImageData(with: NSError(domain: "error", code: 0), for: model)
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: model.imageUrl){
+                DispatchQueue.main.async {
+                    self?.presenter?.didFinishLoadingImageData(with: data, for: model)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self?.presenter?.didFinishLoadingImageData(with: NSError(domain: "error", code: 0), for: model)
+                }
+            }
+        }
     }
     
     func didCancelImageRequest() {
